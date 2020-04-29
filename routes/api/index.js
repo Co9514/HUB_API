@@ -1,0 +1,12 @@
+const router = require("express").Router();
+const auth = require("./auth");
+const db = require("./db");
+const QR = require("./QR");
+const ShuttleQR = require("./ShuttleQR");
+const pdf = require("./pdf");
+router.use("/auth", auth);
+router.use("/db", db);
+router.use("/QR", QR);
+router.use("/shuttleQR", ShuttleQR);
+router.use("/pdf", pdf);
+module.exports = router;

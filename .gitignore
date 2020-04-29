@@ -1,0 +1,7 @@
+node_modules
+dist/*
+*.log
+dbinfo.js
+oracle_db_info.js
+/bin
+.prettierrc

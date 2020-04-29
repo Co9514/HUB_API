@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- <link
+      href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800&display=swap"
+      rel="stylesheet"
+    /> -->
+  </head>
+  <style>
+    * {
+      font-family: "Nanum Gothic", sans-serif;
+    }
+
+    .title {
+      font-weight: bold;
+      font-size: 3rem;
+      font-weight: 800;
+    }
+
+    #pageHeader:after,
+    .pageHeader:after {
+      content: "";
+      display: block;
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      top: 160px;
+      left: 0;
+      height: 842px;
+      width: 100%;
+      opacity: 0.5;
+      background-image: url("file:///C:/Users/khj95/OneDrive/바탕 화면/node_pdf/public/images/logo.jpg");
+      background-repeat: no-repeat;
+      background-position: center top;
+      background-size: contain;
+    }
+
+    #intro > p {
+      margin: 16px;
+      font-weight: 700;
+    }
+
+    table {
+      border-collapse: collapse;
+      margin: 0 auto;
+      empty-cells: show;
+      width: 90%;
+      border: 1px solid gray;
+    }
+
+    td,
+    th {
+      border: 1px solid gray;
+      text-align: center;
+      padding: 8px;
+    }
+  </style>
+
+  <body>
+    <header id="pageHeader" class="pageHeader">
+      <h1 class="title" style="text-align: center;">셔틀버스 탑승 증명서</h1>
+    </header>
+    <div id="pageContent" class="pageContent">
+      <div id="intro">
+        <p>성명: <%=name%></p>
+        <p>학번: <%=id%></p>
+        <p>학년: <%=grade%></p>
+        <p>대학,학부(과): <%=department%></p>
+      </div>
+      <p style="text-align: center; font-size: 1.5rem;">
+        2019년 1학기 티켓내역
+      </p>
+      <div id="ticketTable">
+        <table>
+          <thead>
+            <tr>
+              <th>index</th>
+              <th>티켓번호</th>
+              <th>출발정류장</th>
+              <th>도착정류장</th>
+              <th>탑승날짜</th>
+              <th>좌석</th>
+            </tr>
+          </thead>
+          <tbody>
+            <%for(let i = 0 ; i < ticket.length;i++){%>
+            <tr>
+              <td><%=i+1%></td>
+              <td><%=ticket[i].TICKET_ID%></td>
+              <td><%=ticket[i].BUS_STOP_ID%></td>
+              <td><%=ticket[i].DESTINATION_ID%></td>
+              <td><%=ticket[i].RESERVATION_DATE%></td>
+              <td><%=ticket[i].SEAT%></td>
+            </tr>
+            <%}%>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <h3 style="text-align: center;margin-top:40px; padding:30px auto;">
+      위의 사실을 증명합니다.
+    </h3>
+    <p style="text-align: center;padding:0px">2019 년 10 월 31일</p>
+    <h1 style="text-align: center; font-weight:700;padding-top:30px">
+      호 서 대 학 교 H U B
+    </h1>
+  </body>
+</html>
